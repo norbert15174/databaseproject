@@ -1,0 +1,9 @@
+package com.example.postgressqldb.core.driver.service;
+
+import com.example.postgressqldb.model.Driver;
+
+import java.util.Set;
+
+public interface IDriverReadCSVService {
+    Set <Driver> readCSVAndSave();
+}
