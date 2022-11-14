@@ -33,8 +33,11 @@ resource "azurerm_linux_virtual_machine" "vm" {
   network_interface_ids = [
     azurerm_network_interface.vm_nic[each.value.name].id,
   ]
-  disable_password_authentication = false
-  admin_password                  = "i#n*#@b4jwvirnnNUH(#HInK"
+
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("${path.module}/ssh_keys/id_rsa.pub")
+  }
 
   custom_data = base64encode(file("${path.module}/customdata.sh"))
 
