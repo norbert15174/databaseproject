@@ -4,13 +4,13 @@
 * terraform (https://www.terraform.io/)
 
 ## 2. Infrastructure
-If you want to create VMs, enter the following command to your teraminal:
+If you want to create VMs, enter the following commands to your teraminal:
 * ```az login```
 * ```cd infrastructure```
 * ```terraform init```
 * ```terraform apply -var-file variables.tfvars --auto-approve```
 
-If you want to delete VMs, enter the following command to your teraminal:
+If you want to delete VMs, enter the following commands to your teraminal:
 * ```az login```
 * ```cd infrastructure```
 * ```terraform init```
