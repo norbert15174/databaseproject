@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -18,9 +19,12 @@ public class Lap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long number;
     @Setter(value = AccessLevel.NONE)
     @OneToMany(mappedBy = "lap")
-    private Set <LapTime> lapTimes;
+    private Set <LapTime> lapTimes = new HashSet <>();
+
+    public Lap(Long id) {
+        this.id = id;
+    }
 
 }

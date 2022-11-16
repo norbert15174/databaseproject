@@ -59,4 +59,8 @@ public class LapTime implements Serializable {
         return Objects.hash(id);
     }
 
+    public void initId() {
+        this.id = new LapTimeId(race.getId() , driver.getId() , lap.getId());
+    }
+
 }
