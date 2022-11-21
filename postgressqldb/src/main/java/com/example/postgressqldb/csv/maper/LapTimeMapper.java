@@ -24,8 +24,8 @@ public class LapTimeMapper {
 
     private static LapTime build(String[] readValue , Map <Long, Driver> driversById , Map <Long, Race> racesById , Map <Long, Lap> lapsById) {
         var lapTime = new LapTime();
-        var race = racesById.get(Long.valueOf(readValue[2]));
-        var driver = driversById.get(Long.valueOf(readValue[2]));
+        var race = racesById.get(Long.valueOf(readValue[0]));
+        var driver = driversById.get(Long.valueOf(readValue[1]));
         var lap = lapsById.get(Long.valueOf(readValue[2]));
         lapTime.setLap(lap);
         lapTime.setDriver(driver);
