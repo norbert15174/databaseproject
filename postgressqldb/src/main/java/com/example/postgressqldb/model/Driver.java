@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -27,5 +28,7 @@ public class Driver {
     @Setter(value = AccessLevel.NONE)
     @OneToMany(mappedBy = "driver")
     private Set <LapTime> lapTimes;
+    @OneToMany(mappedBy = "driver")
+    private Set <DriverStanding> driverStandings = new HashSet <>();
 
 }

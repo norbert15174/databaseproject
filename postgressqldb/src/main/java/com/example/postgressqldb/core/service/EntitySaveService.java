@@ -3,6 +3,7 @@ package com.example.postgressqldb.core.service;
 import com.example.postgressqldb.core.abstracts.IEntitySaveService;
 import com.example.postgressqldb.core.circuit.service.ICircuitReadCSVService;
 import com.example.postgressqldb.core.driver.service.IDriverReadCSVService;
+import com.example.postgressqldb.core.driverstanding.service.IDriverStandingReadCSVService;
 import com.example.postgressqldb.core.lapstime.service.ILapTimeReadCSVService;
 import com.example.postgressqldb.core.race.service.IRaceReadCSVService;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ public class EntitySaveService implements IEntitySaveService {
     private final IRaceReadCSVService raceReadCSVService;
     private final IDriverReadCSVService driverReadCSVService;
     private final ILapTimeReadCSVService lapTimeReadCSVService;
+    private final IDriverStandingReadCSVService driverStandingReadCSVService;
 
 
     @Transactional
@@ -28,7 +30,8 @@ public class EntitySaveService implements IEntitySaveService {
         var circuits = circuitReadCSVService.readCSVAndSave();
         var races = raceReadCSVService.readCSVAndSave(circuits);
         var drivers = driverReadCSVService.readCSVAndSave();
-        var lapTimes = lapTimeReadCSVService.readCSVAndSave(drivers , races);
+//        var lapTimes = lapTimeReadCSVService.readCSVAndSave(drivers , races);
+        var driverStandings = driverStandingReadCSVService.readCSVAndSave(drivers , races);
     }
 
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -27,6 +28,8 @@ public class Race {
     private String url;
     @Setter(value = AccessLevel.NONE)
     @OneToMany(mappedBy = "race")
-    private Set <LapTime> lapTimes;
+    private Set <LapTime> lapTimes = new HashSet <>();
+    @OneToMany(mappedBy = "race")
+    private Set <DriverStanding> driverStandings = new HashSet <>();
 
 }
