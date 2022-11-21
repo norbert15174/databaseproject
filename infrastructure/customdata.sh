@@ -17,3 +17,10 @@ apt-get install -y docker.io
 systemctl start docker
 systemctl enable docker
 systemctl restart docker
+if [ $(hostname) == "vm-postgres" ]; then
+  docker run -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
+elif [ $(hostname) == "vm-mongo" ]; then
+  docker run -p 27017:27017 -d mongo
+elif [ $(hostname) == "vm-cassandra"]; then
+  docker run -p 9042:9042 -d cassandra
+fi
