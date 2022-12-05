@@ -1,0 +1,18 @@
+spring:
+  data:
+    cassandra:
+      keyspace-name: cassandra
+      contact-points: 20.93.148.34
+      port: 9042
+      local-datacenter: datacenter1
+      schema-action: RECREATE
+      password: cassandra
+      username: cassandra
+      request:
+        timeout: 5s
+      connection:
+        init-query-timeout: 5s
+        connect-timeout: 5s
+  config:
+    activate:
+      on-profile: cloud

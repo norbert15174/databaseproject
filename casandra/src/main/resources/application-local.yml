@@ -1,0 +1,11 @@
+spring:
+  data:
+    cassandra:
+      keyspace-name: cassandra
+      contact-points: 127.0.0.1
+      port: 9042
+      local-datacenter: datacenter1
+      schema-action: RECREATE
+  config:
+    activate:
+      on-profile: local

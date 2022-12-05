@@ -30,7 +30,7 @@ public class EntitySaveService implements IEntitySaveService {
         var circuits = circuitReadCSVService.readCSVAndSave();
         var races = raceReadCSVService.readCSVAndSave(circuits);
         var drivers = driverReadCSVService.readCSVAndSave();
-        var lapTimes = lapTimeReadCSVService.readCSVAndSave(drivers , races);
+//        var lapTimes = lapTimeReadCSVService.readCSVAndSave(drivers , races);
 //        var driverStandings = driverStandingReadCSVService.readCSVAndSave(drivers , races);
     }
 
