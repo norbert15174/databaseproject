@@ -3,6 +3,8 @@ package com.example.mongodb.core.service;
 import com.example.mongodb.core.abstracts.IEntitySaveService;
 import com.example.mongodb.core.circuit.service.ICircuitReadCSVService;
 import com.example.mongodb.core.driver.service.IDriverReadCSVService;
+import com.example.mongodb.core.driverstanding.service.IDriverStandingReadCSVService;
+import com.example.mongodb.core.lapstime.service.ILapTimeReadCSVService;
 import com.example.mongodb.core.race.service.IRaceReadCSVService;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -16,17 +18,17 @@ public class EntitySaveService implements IEntitySaveService {
     private final ICircuitReadCSVService circuitReadCSVService;
     private final IRaceReadCSVService raceReadCSVService;
     private final IDriverReadCSVService driverReadCSVService;
-//    private final ILapTimeReadCSVService lapTimeReadCSVService;
-//    private final IDriverStandingReadCSVService driverStandingReadCSVService;
+    private final ILapTimeReadCSVService lapTimeReadCSVService;
+    private final IDriverStandingReadCSVService driverStandingReadCSVService;
 
 
     @EventListener(ApplicationReadyEvent.class)
     public void init() {
-        var races = raceReadCSVService.readCSVAndSave();
+        var lapTimes = lapTimeReadCSVService.readCSVAndSave();
+        var driverStandings = driverStandingReadCSVService.readCSVAndSave();
+        var races = raceReadCSVService.readCSVAndSave(driverStandings , lapTimes);
         var circuits = circuitReadCSVService.readCSVAndSave(races);
-        var drivers = driverReadCSVService.readCSVAndSave();
-//        var lapTimes = lapTimeReadCSVService.readCSVAndSave();
-//        var driverStandings = driverStandingReadCSVService.readCSVAndSave();
+        var drivers = driverReadCSVService.readCSVAndSave(driverStandings , lapTimes);
     }
 
 }

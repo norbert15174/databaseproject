@@ -26,9 +26,10 @@ public class EntitySaveService implements IEntitySaveService {
     public void init() {
         var circuits = circuitReadCSVService.readCSVAndSave();
         var races = raceReadCSVService.readCSVAndSave();
-//        var drivers = driverReadCSVService.readCSVAndSave();
+        var drivers = driverReadCSVService.readCSVAndSave();
+        var driverStandings = driverStandingReadCSVService.readCSVAndSave();
 //        var lapTimes = lapTimeReadCSVService.readCSVAndSave();
-//        var driverStandings = driverStandingReadCSVService.readCSVAndSave();
+
     }
 
 }
