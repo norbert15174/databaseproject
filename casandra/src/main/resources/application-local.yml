@@ -5,7 +5,7 @@ spring:
       contact-points: 127.0.0.1
       port: 9042
       local-datacenter: datacenter1
-      schema-action: RECREATE
+#      schema-action: RECREATE
   config:
     activate:
       on-profile: local

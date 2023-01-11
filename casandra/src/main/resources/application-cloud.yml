@@ -5,7 +5,7 @@ spring:
       contact-points: 20.93.148.34
       port: 9042
       local-datacenter: datacenter1
-      schema-action: RECREATE
+#      schema-action: RECREATE
       password: cassandra
       username: cassandra
       request:

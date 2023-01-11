@@ -22,7 +22,7 @@ public class EntitySaveService implements IEntitySaveService {
     private final IDriverStandingReadCSVService driverStandingReadCSVService;
 
 
-    @EventListener(ApplicationReadyEvent.class)
+//    @EventListener(ApplicationReadyEvent.class)
     public void init() {
         var circuits = circuitReadCSVService.readCSVAndSave();
         var races = raceReadCSVService.readCSVAndSave();
