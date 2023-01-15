@@ -24,11 +24,11 @@ public class EntitySaveService implements IEntitySaveService {
 
     @EventListener(ApplicationReadyEvent.class)
     public void init() {
-        var lapTimes = lapTimeReadCSVService.readCSVAndSave();
-        var driverStandings = driverStandingReadCSVService.readCSVAndSave();
-        var races = raceReadCSVService.readCSVAndSave(driverStandings , lapTimes);
-        var circuits = circuitReadCSVService.readCSVAndSave(races);
-        var drivers = driverReadCSVService.readCSVAndSave(driverStandings , lapTimes);
+//        var lapTimes = lapTimeReadCSVService.readCSVAndSave();
+//        var driverStandings = driverStandingReadCSVService.readCSVAndSave();
+//        var races = raceReadCSVService.readCSVAndSave(driverStandings , lapTimes);
+//        var circuits = circuitReadCSVService.readCSVAndSave(races);
+//        var drivers = driverReadCSVService.readCSVAndSave(driverStandings , lapTimes);
     }
 
 }
